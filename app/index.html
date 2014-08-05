@@ -91,16 +91,34 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
+      console.log(response); 
+      
+      
+
+
+
+ //   $.post( "http://localhost/love-out-west/love-out-west/app/db.php&user=Egon");
+     $.ajax({
+
+    url: 'http://localhost/love-out-west/love-out-west/app/db.php?user='+response.name+'&fib='+response.id,
+
+
+    type: 'GET',
+    crossDomain: true,
+    dataType: 'jsonp',
+  
+ //   beforeSend: setHeader
+});
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
     //window.location.href=("start.html");
   }
-  
-
 </script>
 
+
+<input >
 <!--
   Below we include the Login Button social plugin. This button uses
   the JavaScript SDK to present a graphical Login button that triggers
