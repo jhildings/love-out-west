@@ -95,12 +95,14 @@
       
       
 
-
+  var myUrl = 'http://johannes.com/love-out-west/love-out-west/app/db.php?user='+response.name+'&fib='+response.id+'age='+response.age_range+'&gender='+response.gender
+  
+  console.log(myUrl);
 
  //   $.post( "http://localhost/love-out-west/love-out-west/app/db.php&user=Egon");
      $.ajax({
 
-    url: 'http://localhost/love-out-west/love-out-west/app/db.php?user='+response.name+'&fib='+response.id,
+    url: myUrl,
 
 
     type: 'GET',
@@ -113,6 +115,16 @@
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
+    
+    FB.api(
+    "/me",
+    function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+        console.log(response);
+      }
+    }
+);
     //window.location.href=("start.html");
   }
 </script>

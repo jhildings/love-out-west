@@ -15,7 +15,9 @@ header('Access-Control-Allow-Origin: *');
  $user = $_GET['user'];
  
  $fib = $_GET['fib'];
- 
+ $gender = $_GET['gender']; 
+ //$age = $_GET['age'];
+ $age = rand(15,35);
  
 
  $res = mysql_query("SELECT * FROM user");
@@ -34,13 +36,14 @@ $ins = "INSERT INTO  `wow`.`user` (
 `id` ,
 `name` ,
 `age` ,
+`gender` ,
 `fib`
 )
 VALUES (
-NULL ,  '$user',  '',  '$fib'
+NULL ,  '$user',  '$age', '$gender',  '$fib'
 );";
 
-mysql_query($ins);
+mysql_query($ins) or die(mysql_error());
  
  
  
