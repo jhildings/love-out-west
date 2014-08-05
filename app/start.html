@@ -155,12 +155,28 @@
             </div>
         </div>
 
+        <div id="users">
+        <h3>USERS:</h3>
+        </div>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
-        <script src="scripts/scroll.js"></script>    
-
+        <script src="scripts/scroll.js"></script>  
+        <script src="scripts/match.js"></script>  
+        <script src="scripts/getUsers.js"></script>        
+           
+        <script>
+            var users = [];
+            getUsers(users);
+            
+            var div = document.getElementById('users');
+            for (var i in users) {
+                div.innerHTML += users[i].id;
+            }
+        
+        </script>
+ 
         <!-- endbower -->
         <!-- endbuild -->
 

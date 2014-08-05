@@ -1,5 +1,4 @@
-<script>
-
+/*
 var user0 = {
     id: "0000",
     name: "John Doe",
@@ -25,11 +24,13 @@ var user3 = {
     bands: ["Frost"]
 };
 
+
 var users = [];
 users.push(user0);
 users.push(user1);
 users.push(user2);
 users.push(user3);
+*/
 
 function get_matches(u1, u2) {
     var common_bands = [];
@@ -88,13 +89,3 @@ function compare(a, b) {
     }
     return 0;
 }
-/*
-var durd = return_sorted_array(user2, users);
-console.log(durd);
-console.log(durd[0][0]);
-console.log(durd[1][0]);
-console.log(durd[2][0]);
-*/
-
-</script>
-
