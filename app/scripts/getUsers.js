@@ -1,4 +1,4 @@
-function getUsers(users) {
+function getUsers() {
 //    var users = [];
     var derp = $.getJSON('http://10.47.12.27/love-out-west/love-out-west/app/api.php', function(data) {
         $.each(data, function(index, elem) {

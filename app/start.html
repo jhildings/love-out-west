@@ -168,17 +168,8 @@
         <script src="scripts/getUsers.js"></script>  
            
         <script>
-
             getArtists();
-            
-            var users = [];
-            getUsers(users);
-            
-            var div = document.getElementById('users');
-            for (var i in users) {
-                div.innerHTML += users[i].id;
-            }
-        
+            getUsers();
         </script>
  
         <!-- endbower -->
