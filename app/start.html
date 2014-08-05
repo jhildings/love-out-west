@@ -17,6 +17,7 @@
         <!-- endbuild -->
     </head>
     <body>
+
     <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -142,13 +143,14 @@
         </div>
 
         <div id="listor">
-            <div id="torsdag">
+            <div id="torsdag" class="anchor">
+            <a class="scroll" href="#fredag">till fredag</a>
             <h3>Torsdag:</h3>
             </div>
-            <div id="fredag">
+            <div id="fredag" class="anchor">
             <h3>Fredag:</h3>
             </div>
-            <div id="lordag">
+            <div id="lordag" class="anchor">
             <h3>Lördag:</h3>
             </div>
         </div>
@@ -157,6 +159,8 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="scripts/scroll.js"></script>    
+
         <!-- endbower -->
         <!-- endbuild -->
 
