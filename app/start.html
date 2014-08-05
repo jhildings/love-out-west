@@ -126,7 +126,7 @@
                 <img src="wol_logo.png"></img>
                 <h2>Need company?</h2>
                 <p class="lead">Never go to a show alone again!</p>
-                <p><a class="btn btn-lg btn-success" href="#">Log in! <span class="glyphicon glyphicon-ok"></span></a></p>
+                <p><a class="btn btn-lg btn-success" href="#">Get Started! <span class="glyphicon glyphicon-ok"></span></a></p>
             </div>
     
             <div class="row marketing">
@@ -164,9 +164,13 @@
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="scripts/scroll.js"></script>  
         <script src="scripts/match.js"></script>  
-        <script src="scripts/getUsers.js"></script>        
+        <script src="scripts/getArtists.js"></script>  
+        <script src="scripts/getUsers.js"></script>  
            
         <script>
+
+            getArtists();
+            
             var users = [];
             getUsers(users);
             
