@@ -17,6 +17,10 @@
         <!-- endbuild -->
     </head>
     <body>
+    
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+
+    <script>var fbid = -1</script>
 
     <script>
   // This is called with the results from from FB.getLoginStatus().
@@ -29,6 +33,8 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
+      console.log(response);
+      fbid = response.authResponse.userid;
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -139,9 +145,6 @@
                 </div>
             </div>
 
-
-        </div>
-
         <div id="bands">
             <div id="torsdag" class="anchor">
             <a class="scroll" href="#fredag">to friday!</a>
@@ -179,27 +182,39 @@
             </select> 
             </form>
 
-            <a class="btn btn-lg btn-success scroll" href="#matches">Get me a match!</a>
+            <script>
+                $(document).ready("#gen").click(function() {
+                    console.log("your id is " + fbid);
+                    genMatches(fbid, all_users);
+                });
+
+            </script>
+            <a id="gen" class="btn btn-lg btn-success scroll" href="#matches">Get me a match!</a>
         </div>
 
         <div id="matches">
+        
         </div>
 
         <div id="users">
         <h3>USERS:</h3>
         </div>
 
+        </div>
+
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="scripts/scroll.js"></script>  
         <script src="scripts/match.js"></script>  
         <script src="scripts/getArtists.js"></script>  
         <script src="scripts/getUsers.js"></script>  
-           
+        <script src="scripts/genMatches.js"></script>  
+                
+   
         <script>
             getArtists();
-            getUsers();
+            var all_users = [];
+            getUsers(all_users);
         </script>
  
         <!-- endbower -->

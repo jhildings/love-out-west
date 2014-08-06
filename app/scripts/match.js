@@ -89,3 +89,12 @@ function compare(a, b) {
     }
     return 0;
 }
+
+function getUserByFBID(fbid, all_users) {
+    for (var i in all_users) {
+        if (all_users[i].fbid == fbid) {
+            return all_users[i];
+        }
+    }
+
+}
