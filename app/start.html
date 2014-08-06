@@ -154,29 +154,29 @@
             <div id="lordag" class="anchor">
             <h3>Saturday:</h3>
             </div>
-            <a class="btn btn-lg btn-success scroll" href="#prefs">Next</a>
+            <a class="btn btn-lg btn-success scroll" href="#prefs">Next</a><br>
         </div>
 
         <div id="prefs" class="jumbotron">
             <h3>Who do you wanna meat?</h3>
             <form>
             <p>Gender</p>
-            <select name="gender">
-            <option value="dnm">Whatever</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-            <option value="other">Other</option>
+            <select name="gender" style="color: #000000">
+            <option value="dnm" style="color: #000000">Whatever</option>
+            <option value="female" style="color: #000000">Female</option>
+            <option value="male"  style="color: #000000">Male</option>
+            <option value="other" style="color: #000000">Other</option>
             </select>
 
             <p>Age</p><input type="text" name="age">
 
             <p>Language</p>
-            <select name="lang">
-            <option value="en">English</option>
-            <option value="se">Swedish</option>
-            <option value="de">German</option>
-            <option value="dk">Danish</option>
-            <option value="no">Norwegian</option>
+            <select name="lang" style="color: #000000">
+            <option value="en" style="color: #000000">English</option>
+            <option value="se" style="color: #000000">Swedish</option>
+            <option value="de" style="color: #000000">German</option>
+            <option value="dk" style="color: #000000">Danish</option>
+            <option value="no" style="color: #000000">Norwegian</option>
             </select> 
             </form>
 
@@ -218,7 +218,7 @@
                     var bands = ["OutKast","Queens of the Stone Age","The National","Robyn","R\u00f6yksopp","Little Dragon","Icona Pop","Janelle Mon\u00e1e","Pusha T","Future","Neutral Milk Hotel","Poli\u00e7a","Blood Orange","Jamie xx","Joey Bada$$","Shlohmo","M\u00d8","I Break Horses","Darkside","Machinedrum","Marissa Nadler","Jungle","Jonathan Wilson","Jenny Wilson","Deafheaven","Forest Swords","Markus Kruneg\u00e5rd","Chloe Howl","Brody Dalle","Mighty Oaks","Circa Waves","Holly Herndon","Yumi Zouma","Hurula","Annika Norlin"];
     
                     var str = "";
-                    str += "<p>Name: " + match.name + ", matches: " + num_of_matches + bands[2] + "</p><br>";
+                    str += "<p>Name: " + match.name + ", matches: " + num_of_matches + ": " + bands[2] + "</p><br>";
                     var div1 = document.getElementById('matches');
                     div1.innerHTML += str; 
                }
