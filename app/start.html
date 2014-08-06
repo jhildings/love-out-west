@@ -213,11 +213,12 @@
                function addOne(user1, match) {
                     var matches = get_matches(user1, match);
                     var num_of_matches = matches[0][0].length;
-
+                     var mybands = ["Outkast", "The National", "Robyn"]
                     console.log(matches);
-
+                    var bands = ["OutKast","Queens of the Stone Age","The National","Robyn","R\u00f6yksopp","Little Dragon","Icona Pop","Janelle Mon\u00e1e","Pusha T","Future","Neutral Milk Hotel","Poli\u00e7a","Blood Orange","Jamie xx","Joey Bada$$","Shlohmo","M\u00d8","I Break Horses","Darkside","Machinedrum","Marissa Nadler","Jungle","Jonathan Wilson","Jenny Wilson","Deafheaven","Forest Swords","Markus Kruneg\u00e5rd","Chloe Howl","Brody Dalle","Mighty Oaks","Circa Waves","Holly Herndon","Yumi Zouma","Hurula","Annika Norlin"];
+    
                     var str = "";
-                    str += "<p>Name: " + match.name + ", matches: " + num_of_matches + "</p><br>";
+                    str += "<p>Name: " + match.name + ", matches: " + num_of_matches + bands[2] + "</p><br>";
                     var div1 = document.getElementById('matches');
                     div1.innerHTML += str; 
                }
