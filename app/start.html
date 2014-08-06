@@ -187,7 +187,7 @@
         <script src="scripts/match.js"></script>  
         <script src="scripts/getArtists.js"></script>  
         <script src="scripts/getUsers.js"></script>  
-        <script src="scripts/genMatches.js"></script>  
+        <!-- <script src="scripts/genMatches.js"></script> -->  
                 
 
             <script>
@@ -207,13 +207,14 @@
                     var num_of_matches = matches.length;
 
                     var str;
-                    str += "<p>""Name: " + match.name + ", matches: " + num_of_matches + "</p><br>"; 
+                    str += "<p>Name: " + match.name + ", matches: " + num_of_matches + "</p><br>"; 
                     div1.innerHTML += str; 
                }
 
                 $(document).ready("#gen").click(function() {
                     console.log("your id is " + fbid);
                     genMatches(fbid, all_users);
+                    console.log("derfa");
                 });
 
             </script>
