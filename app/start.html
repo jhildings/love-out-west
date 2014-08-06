@@ -33,8 +33,7 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      console.log(response);
-      fbid = response.authResponse.userid;
+      fbid = response.authResponse.userID;
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -59,7 +58,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '696668907053643',
+    appId      : '340968969400990',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -182,7 +181,36 @@
             </select> 
             </form>
 
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="scripts/scroll.js"></script>  
+        <script src="scripts/match.js"></script>  
+        <script src="scripts/getArtists.js"></script>  
+        <script src="scripts/getUsers.js"></script>  
+        <script src="scripts/genMatches.js"></script>  
+                
+
             <script>
+                var div1 = document.getElementById('matches');
+                function genMatches(fbid, all_users1) {
+                        console.log("Lets generate some matches!");
+                        var user1 = getUserByFBID(fbid, all_users1);
+                        var matches = return_sorted_array(user1, all_users1);
+
+                        for (var i in matches) {
+                            addOne(user1, all_users1[matches[i][0]]);
+                        }   
+
+               }               
+               function addOne(user1, match) {
+                    var matches = get_matches(user1, match);
+                    var num_of_matches = matches.length;
+
+                    var str;
+                    str += "<p>""Name: " + match.name + ", matches: " + num_of_matches + "</p><br>"; 
+                    div1.innerHTML += str; 
+               }
+
                 $(document).ready("#gen").click(function() {
                     console.log("your id is " + fbid);
                     genMatches(fbid, all_users);
@@ -202,14 +230,6 @@
 
         </div>
 
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="scripts/scroll.js"></script>  
-        <script src="scripts/match.js"></script>  
-        <script src="scripts/getArtists.js"></script>  
-        <script src="scripts/getUsers.js"></script>  
-        <script src="scripts/genMatches.js"></script>  
-                
    
         <script>
             getArtists();
