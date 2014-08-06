@@ -2,16 +2,18 @@ console.log('\'Allo \'Allo!');
 
 var concerts = [[],[],[]];
 
-var tdiv = document.getElementById('listor').children[0];
-var fdiv = document.getElementById('listor').children[1];
-var sdiv = document.getElementById('listor').children[2];
+var tdiv = document.getElementById('bands').children[0];
+var fdiv = document.getElementById('bands').children[1];
+var sdiv = document.getElementById('bands').children[2];
 var listElement = document.createElement("ul");
 tdiv.appendChild(listElement);
 fdiv.appendChild(listElement);
 sdiv.appendChild(listElement);
 
-function addToList(div, str) {
+function addToList(div, elem) {
     var cons = document.createElement("li");
+    var time = elem.start.substring(11,16);
+    var str = elem.artist + " " + time;
     cons.innerHTML = "<input type=\"checkbox\" />" + str;
     div.appendChild(cons); 
 }
@@ -20,17 +22,15 @@ function getArtists() {
     var wow = $.getJSON('http://wayoutwest.se/ajax/events/', function(data) {
         $.each(data.data, function(index, element) {
             var date = element.start.substring(0,10);
+            var time = element.start.substring(11,16);
             if (date == '2014-08-07') {
-                concerts[0].push(element.artist);
-                addToList(tdiv, element.artist);
+                addToList(tdiv, element);
             } 
             else if (date == '2014-08-08') {
-                concerts[1].push(element.artist);
-                addToList(fdiv, element.artist);
+                addToList(fdiv, element);
             } 
             else if (date == '2014-08-09') {
-                concerts[2].push(element.artist);
-                addToList(sdiv, element.artist);
+                addToList(sdiv, element);
             } 
         }); 
     });
