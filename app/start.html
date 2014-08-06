@@ -146,7 +146,6 @@
 
         <div id="bands">
             <div id="torsdag" class="anchor">
-            <a class="scroll" href="#fredag">to friday!</a>
             <h3>Thursday:</h3>
             </div>
             <div id="fredag" class="anchor">
@@ -189,30 +188,43 @@
         <script src="scripts/getUsers.js"></script>  
         <!-- <script src="scripts/genMatches.js"></script> -->  
                 
+        <script>
+            getArtists();
+            var all_users = [];
+            getUsers(all_users);
+        </script>
 
             <script>
-                var div1 = document.getElementById('matches');
                 function genMatches(fbid, all_users1) {
                         console.log("Lets generate some matches!");
                         var user1 = getUserByFBID(fbid, all_users1);
                         var matches = return_sorted_array(user1, all_users1);
+                        
+                        console.log(matches[0][1].length);
+
+                        var num_of_matches = matches[0][1].length;
 
                         for (var i in matches) {
                             addOne(user1, all_users1[matches[i][0]]);
                         }   
 
-               }               
+               }
+               
                function addOne(user1, match) {
                     var matches = get_matches(user1, match);
-                    var num_of_matches = matches.length;
+                    var num_of_matches = matches[0][0].length;
 
-                    var str;
-                    str += "<p>Name: " + match.name + ", matches: " + num_of_matches + "</p><br>"; 
+                    console.log(matches);
+
+                    var str = "";
+                    str += "<p>Name: " + match.name + ", matches: " + num_of_matches + "</p><br>";
+                    var div1 = document.getElementById('matches');
                     div1.innerHTML += str; 
                }
 
                 $(document).ready("#gen").click(function() {
                     console.log("your id is " + fbid);
+                    console.log(all_users);
                     genMatches(fbid, all_users);
                     console.log("derfa");
                 });
@@ -222,21 +234,17 @@
         </div>
 
         <div id="matches">
-        
+        <h3>Matches</h3>        
         </div>
 
-        <div id="users">
-        <h3>USERS:</h3>
+
+        <div id="users" hidden="true">
         </div>
+
 
         </div>
 
    
-        <script>
-            getArtists();
-            var all_users = [];
-            getUsers(all_users);
-        </script>
  
         <!-- endbower -->
         <!-- endbuild -->

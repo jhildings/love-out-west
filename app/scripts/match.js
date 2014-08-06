@@ -39,6 +39,7 @@ function get_matches(u1, u2) {
         for (var j in u2.bands) {
             if (u1.bands[i] == u2.bands[j]) {
                 common_bands.push(u1.bands[i]) 
+                console.log(u1.bands[i]);
             }
         }
     }
@@ -73,11 +74,21 @@ function return_sorted_array(user, all_users) {
     for (var i in all_users) {
         var o = all_users[i];
         if (user.id != o.id) {
-            unsorted.push([o.id, get_matches(user, o)]);   
+            unsorted.push([o.id, get_matches(user, o)]);
         }
     }
 
-    return unsorted.sort(compare);
+    //console.log("unsorted: ");
+    //console.log(unsorted);
+
+    var rand = Math.floor(Math.random() * 5);
+
+    unsorted2 = [[rand, ["Nirvana", "Pulp"]]];
+
+    return unsorted2;
+    //return unsorted2.sort(compare);
+
+    //return unsorted.sort(compare);
 }
 
 function compare(a, b) {
@@ -91,8 +102,10 @@ function compare(a, b) {
 }
 
 function getUserByFBID(fbid, all_users) {
+    console.log("trying to find " + fbid);
+    console.log(all_users);
     for (var i in all_users) {
-        if (all_users[i].fbid == fbid) {
+        if (all_users[i].fib == fbid) {
             return all_users[i];
         }
     }
